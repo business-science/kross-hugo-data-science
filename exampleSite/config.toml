@@ -46,9 +46,9 @@ logo = ""
 # theme color
 theme_color = "#003049"
 # contact info
-phone = "+880 2544 658 256"
+phone = "--"
 email = "your-email@gmail.com"
-address = "Inquire via email"
+address = "--"
 # meta description
 author = "Matt Dancho"
 description = "An example data science portfolio with kross theme."
