@@ -91,6 +91,10 @@ icon = "ti-linkedin"
 URL = "#"
 
 [[params.social]]
+icon = "ti-github"
+URL = "#"
+
+[[params.social]]
 icon = "ti-youtube"
 URL = "#"
 
