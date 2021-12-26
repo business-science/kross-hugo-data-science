@@ -1,81 +1,128 @@
 # banner
 banner:
-  title : "Hi! I’m <br> Christoher <br> UX designer"
+  title: "Hi! I’m <br> Matt <br> <small>Data Scientist, Trainer & Mentor</small>"
+  button:
+    enable: true
+    label: "Contact Matt"
+    icon: 'ti-email'
+    URL: "mailto:your-email@gmail.com"
+  
+# contact 
+contact:
+  enable: true
+  title: 'Contact Matt'
+  contact_image: "images/about/user-picture-2.jpg"
+  email:
+    title: "Email"
+    email: "your-email@gmail.com"
+  button:
+    enable: true
+    label: "Contact Matt"
+    icon: 'ti-email'
+    URL: "mailto:your-email@gmail.com"
 
 # about
 about:
   enable : true
-  content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+  content : 
+    <p class="lead">
+    <strong>I love helping data scientists.</strong> My passion is training. But, when I am not making new courses
+    or building software, I enjoy vacationing with my family and friends. 
+    </p>
+    <p class="lead">
+    <strong>My area of focus</strong> is applying data science to business. 
+    I create value for companies by understanding the financial
+    cost of problems and delivering a return-on-investment with my solutions. 
+    I enjoy learning, working with stakeholders, and making better decisions with data.
+    </p>
+  author_image: "images/about/user-picture-2.jpg"
   button:
     enable : true
     label : "know more"
     URL : "about"
 
-# skill
-skill:
+# portfolio
+portfolio:
   enable : true
-  title : "Skills"
-  item:
-    - title : "Web Design"
-      progress : "90%"
-      color : "#fdb157"
-      
-    - title : "Logo Design"
-      progress : "60%"
-      color : "#9473e6"
-      
-    - title : "After Effects"
-      progress : "80%"
-      color : "#bdecf6"
-      
-    - title : "Web App"
-      progress : "70%"
-      color : "#ffbcaa"
+  title : "Data Science Portfolio"
+  item_show : 2
+  item_width_lg: 6
+  # portfolio item comes from 'data/portfolio.yml' item.
+
+
 
 # experience
 experience:
   enable : true
   title : "Experience"
+  description: "<p class='lead'>Over 15+ years of experience working with companies from all over the world. I design & develop data science products to help businesses increase profitability and improve customer experience.</p>"
+  button:
+    icon: "ti-linkedin"
+    btnText: "Linkedin"
+    URL: "https://www.linkedin.com/"
+  button2:
+    icon: "ti-file"
+    btnText: "Download My Resume"
+    URL: "#"
+  
   item: 
     - logo : "images/experience/icon-1.png"
-      title : "Junior UX Designer"
-      company : "WEBEX"
-      duration : "Jan 2007 - Feb 2009"
+      title : "Founder & Lead Data Science Instructor"
+      company : "Business Science"
+      duration : "Sept 2018 - Present"
       
     - logo : "images/experience/icon-2.png"
-      title : "UX & UI Designer"
-      company : "AUGMEDIX"
-      duration : "Mar 2009 - Aug 2014"
+      title : "Director of Product Engineering & Market Development"
+      company : "Bonney Forge"
+      duration : "Jan 2017 - Aug 2018"
       
     - logo : "images/experience/icon-1.png"
-      title : "Senior UI Designer"
-      company : "THEMEFISHER"
-      duration : "Sep 2014 - Present"
+      title : "Manager of Sales Engineering"
+      company : "Bonney Forge"
+      duration : "Mar 2014 - Jan 2017"
 
 # education
 education:
   enable : true
   title : "Education"
   item:
-    - title : "Marters in UX Design"
+    - title : "Master of Business Administration (MBA)"
+      year : "2015"
+      academy : "Penn State University"
+      
+    - title : "Master of Industrial Engineering"
+      year : "2010"
+      academy : "University of Pittsburgh"
+      
+    - title : "Bachelor of Mechanical Engineering"
       year : "2006"
-      academy : "Masassusets Institute of Technology"
+      academy : "Penn State University"
+
       
-    - title : "Honours in Fine Arts"
-      year : "2004"
-      academy : "Harvard University"
+# skill
+skill:
+  enable : true
+  title : "Skills"
+  item:
+    - title : "R"
+      progress : "90%"
+      color : "#fdb157"
       
-    - title : "Higher Secondary Certificat"
-      year : "2000"
-      academy : "Cardiff School"
+    - title : "Python"
+      progress : "70%"
+      color : "#9473e6"
       
-    - title : "Secondary School Certificate"
-      year : "1998"
-      academy : "Cardiff School"
+    - title : "Spark"
+      progress : "50%"
+      color : "#18bc9c"
+      
+    - title : "Web Apps"
+      progress : "70%"
+      color : "#ffbcaa"
 
 # service
 service:
-  enable : true
+  enable : false
   title : "Services"
   item:
     - title : "UI Design"
@@ -93,36 +140,31 @@ service:
       content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
       highlighted : false
 
-# portfolio
-portfolio:
-  enable : true
-  title : "Portfolio"
-  item_show : 5
-  # portfolio item comes from 'data/portfolio.yml' item.
+
 
 # testimonial
 testimonial:
   enable : true
-  title : "Testimonials"
+  title : "References"
   item:
-    - name : "Jesica Gomez"
-      image : "images/testimonial/client-1.png"
-      designation : "CEO, Funder"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    - name : "Justin Kurland, PhD"
+      image : "images/testimonial/justin.jpg"
+      designation : "Lead Data Scientist, Northwestern Mutual"
+      content : "<p class='lead text-white'><em>In less than 6 months after starting my first Business Science Course with Matt I had fully transitioned into a role as a lead data scientist and my life is better for it!</em></p>"
       
-    - name : "Shirley Scot"
-      image : "images/testimonial/client-1.png"
-      designation : "CEO, Funder"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+    - name : "Chris Selig"
+      image : "images/testimonial/chris.jpg"
+      designation : "Data Scientist"
+      content : "<p class='lead text-white'><em>Because of all the R courses Matt Dancho has provided, I landed my first Data Scientist role. Setting up shiny dashboards in AWS was extremely helpful during my interview.</em></p>"
+        
+    - name : "Mohana Krishna Chittoor"
+      image : "images/testimonial/mohana.jpg"
+      designation : "Lead Data Scientist, Money View"
+      content : "<p class='lead text-white'><em>After your entry into my life, I got a 10% pay raise and then after another 6-months of 26%, and in just another 2-months a 40% hike. I can grab a job wherever I want.</em></p>"
       
-    - name : "Jessica Julie"
-      image : "images/testimonial/client-1.png"
-      designation : "CEO, Funder"
-      content : "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <strong>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</strong> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-
 # client logo slider
 clients_logo_slider:
-  enable : true
+  enable : false
   item:
     - logo : "images/clients-logo/client-logo-1.png"
       URL : "http://examplesite.com"
@@ -156,6 +198,6 @@ clients_logo_slider:
 
 # blog
 blog:
-  enable : true
+  enable : false
   title : "Blogs"
   # blog post comes from "content/blog" folder

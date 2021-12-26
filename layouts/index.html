@@ -6,6 +6,12 @@
       <div class="row">
         <div class="col-lg-11 mx-auto">
           <h1 class="text-white font-secondary">{{ site.Data.homepage.banner.title | safeHTML }}</h1>
+          {{ if site.Data.homepage.banner.button.enable }}
+          <a class="btn btn-info" href="{{ site.Data.homepage.banner.button.URL | absURL }}">
+            <i class="{{ site.Data.homepage.banner.button.icon }}"></i>
+            {{ site.Data.homepage.banner.button.label }}
+          </a>
+          {{ end }}
         </div>
       </div>
     </div>
@@ -48,12 +54,32 @@
 
   {{ if site.Data.homepage.about.enable }}
   <!-- about -->
+  <section class="section pt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          {{ site.Data.homepage.about.content | safeHTML }}
+        </div>
+        <div class="col-md-4 text-center drag-lg-top">
+          <div class="shadow-down mb-4">
+            <img src="{{site.Data.homepage.about.author_image | absURL }}" alt="author"
+              class="img-fluid w-100 rounded-lg border-thick border-white">
+          </div>
+          <!--<img src="{{site.Data.homepage.about.author_signature | absURL }}" alt="signature" class="img-fluid">-->
+          <h4>{{ site.Params.Author }}</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /about -->
+  <!-- about -->
+  <!--
   <section class="section">
     <div class="container">
       <div class="row">
         <div class="col-lg-10 mx-auto text-center">
           {{ with site.Data.homepage.about }}
-          <p class="font-secondary lead text-dark">{{.content | markdownify}}</p>
+          <p class="font-secondary lead text-dark">{{.content | safeHTML}}</p>
           {{ if .button.enable }}
           {{ with .button }}
           <a href="{{ .URL | absURL }}" class="btn btn-transparent">{{.label}}</a>
@@ -64,27 +90,30 @@
       </div>
     </div>
   </section>
+  -->
   <!-- /about -->
   {{ end }}
 
-
-  {{ if site.Data.homepage.skill.enable }}
-  {{ with site.Data.homepage.skill }}
-  <!-- skills -->
+  {{ if site.Data.homepage.portfolio.enable }}
+  <!-- portfolio -->
   <section class="section">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 text-center">
-          <h2 class="section-title">{{ .title | markdownify }}</h2>
+        <div class="col-12 text-center">
+          <h2 class="section-title">{{ site.Data.homepage.portfolio.title | markdownify }}</h2>
+          
         </div>
-        {{ range .item }}
-        <div class="col-lg-3 col-sm-6 mb-4">
-          <div class="card shadow text-center">
-            <div class="position-relative rounded-top progress-wrapper" data-color="{{.color}}">
-              <div class="wave" data-progress="{{.progress}}"></div>
-            </div>
-            <div class="card-footer bg-white">
-              <h4 class="card-title">{{.title }} ({{.progress}})</h4>
+      </div>
+      <div class="row shuffle-wrapper">
+        {{ $item:= site.Data.homepage.portfolio.item_show }}
+        {{ range first $item (where .Site.RegularPages "Section" "portfolio") }}
+        <div class="col-lg-{{ site.Data.homepage.portfolio.item_width_lg }} col-6 mb-4 shuffle-item">
+          <div class="position-relative rounded hover-wrapper">
+            <img src="{{.Params.image | absURL }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
+            <div class="hover-overlay">
+              <div class="hover-content">
+                <a class="btn btn-light btn-sm" href="{{ .Permalink | safeURL }}">{{.Params.title | markdownify }}</a>
+              </div>
             </div>
           </div>
         </div>
@@ -92,9 +121,9 @@
       </div>
     </div>
   </section>
-  <!-- /skills -->
+  <!-- /portfolio -->
   {{ end }}
-  {{ end }}
+  
 
   {{ if site.Data.homepage.experience.enable }}
   {{ with site.Data.homepage.experience }}
@@ -104,7 +133,20 @@
       <div class="row justify-content-around">
         <div class="col-lg-12 text-center">
           <h2 class="section-title">{{ .title | markdownify }}</h2>
+          
+          <a href="{{ .button.URL | absURL }}" class="btn btn-primary"
+             target="_blank">
+              <i class="{{ .button.icon }}"></i>
+              {{ .button.btnText }}
+              <i class="icon-arrow-right"></i></a>
+          <a href="{{ .button2.URL | absURL }}" class="btn btn-frameless"
+             target="_blank">
+              <i class="{{ .button2.icon }}"></i>
+              {{ .button2.btnText }}
+          </a>
+          <p>{{ .description | safeHTML }}</p>
         </div>
+        
         {{ range .item }}
         <div class="col-lg-3 col-md-4 text-center">
           <img src="{{.logo | relURL }}" alt="icon">
@@ -113,6 +155,7 @@
           <h6 class="text-light">{{.company }}</h6>
         </div>
         {{ end }}
+        
       </div>
     </div>
   </section>
@@ -151,6 +194,34 @@
   <!-- /education -->
   {{ end }}
   {{ end }}
+  
+  {{ if site.Data.homepage.skill.enable }}
+  {{ with site.Data.homepage.skill }}
+  <!-- skills -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-title">{{ .title | markdownify }}</h2>
+        </div>
+        {{ range .item }}
+        <div class="col-lg-3 col-sm-6 mb-4">
+          <div class="card shadow text-center">
+            <div class="position-relative rounded-top progress-wrapper" data-color="{{.color}}">
+              <div class="wave" data-progress="{{.progress}}"></div>
+            </div>
+            <div class="card-footer bg-white">
+              <h4 class="card-title">{{.title }} ({{.progress}})</h4>
+            </div>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+  <!-- /skills -->
+  {{ end }}
+  {{ end }}
 
 
   {{ if site.Data.homepage.service.enable }}
@@ -181,34 +252,7 @@
   {{ end }}
 
 
-  {{ if site.Data.homepage.portfolio.enable }}
-  <!-- portfolio -->
-  <section class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-          <h2 class="section-title">{{ site.Data.homepage.portfolio.title | markdownify }}</h2>
-        </div>
-      </div>
-      <div class="row shuffle-wrapper">
-        {{ $item:= site.Data.homepage.portfolio.item_show }}
-        {{ range first $item (where .Site.RegularPages "Section" "portfolio") }}
-        <div class="col-lg-4 col-6 mb-4 shuffle-item">
-          <div class="position-relative rounded hover-wrapper">
-            <img src="{{.Params.image | absURL }}" alt="portfolio-image" class="img-fluid rounded w-100 d-block">
-            <div class="hover-overlay">
-              <div class="hover-content">
-                <a class="btn btn-light btn-sm" href="{{ .Permalink | safeURL }}">view project</a>
-              </div>
-            </div>
-          </div>
-        </div>
-        {{ end }}
-      </div>
-    </div>
-  </section>
-  <!-- /portfolio -->
-  {{ end }}
+  
 
 
   {{ if site.Data.homepage.testimonial.enable }}
@@ -225,8 +269,8 @@
           <!-- slider-item -->
           <div class="text-center testimonial-content">
             <i class="ti-quote-right text-white icon mb-4 d-inline-block"></i>
-            <p class="text-white mb-4">{{.content | markdownify}}</p>
-            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{.image | absURL }}" alt="client-image">
+            <p class="text-white mb-4">{{.content | safeHTML}}</p>
+            <img class="img-fluid rounded-circle mb-4 d-inline-block" src="{{.image | absURL }}" alt="client-image" style="width:150px;">
             <h4 class="text-white">{{.name }}</h4>
             <h6 class="text-light mb-4">{{ .designation }}</h6>
           </div>

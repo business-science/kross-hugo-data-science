@@ -1,14 +1,34 @@
-{{ if site.Params.contact.enable }}
+{{ if site.Data.homepage.contact.enable }}
 <!-- contact -->
 <section class="section section-on-footer" data-background="{{`images/backgrounds/bg-dots.png` | absURL}}">
   <div class="container">
     <div class="row">
       <div class="col-12 text-center">
-        <h2 class="section-title">Contact Info</h2>
+        <h2 class="section-title">{{ site.Data.homepage.contact.title }}</h2>
       </div>
       <div class="col-lg-8 mx-auto">
         <div class="bg-white rounded text-center p-5 shadow-down">
+          
+            <h4>{{ site.Params.Author }}</h4>
+            <div class="shadow-down mb-4">
+              <img src="{{site.Data.homepage.contact.contact_image | absURL }}" alt="author"
+                class="img-fluid w-50 rounded-lg border-thick border-white">
+            </div>
+          
+            <h4>{{ site.Data.homepage.contact.email.title }}</h4>
+            <p>{{ site.Data.homepage.contact.email.email | safeHTML }}</p>
+          
+          
+          
+            <a class="btn btn-primary" href='{{ site.Data.homepage.contact.button.btnAction }}'>
+                <i class="{{ site.Data.homepage.contact.button.icon }}"></i>
+                {{ site.Data.homepage.contact.button.label }}
+            </a>
+          
+          
+          <!--
           <h4 class="mb-80">Contact Form</h4>
+          
           <form action="{{site.Params.contact.form_action}}" method="POST" class="row">
             <div class="col-md-6">
               <input type="text" id="name" name="name" placeholder="Full Name" class="form-control px-0 mb-4">
@@ -24,6 +44,7 @@
               <button class="btn btn-primary w-100">send</button>
             </div>
           </form>
+          -->
         </div>
       </div>
     </div>
