@@ -16,7 +16,6 @@ contact:
     title: "Email"
     email: "your-email@gmail.com"
   button:
-    enable: true
     label: "Contact Matt"
     icon: 'ti-email'
     URL: "mailto:your-email@gmail.com"
